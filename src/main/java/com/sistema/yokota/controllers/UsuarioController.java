@@ -4,10 +4,8 @@ import com.sistema.yokota.model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.UsuarioService;
+import com.sistema.yokota.service.UsuarioService;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,16 +24,14 @@ public class UsuarioController {
 //        return ResponseEntity.ok(usuarios);
 //    }
 
-//     Buscar por ID
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Usuario> buscarUsuario(@PathVariable Long id) {
-//        Optional<Usuario> usuario = usuarios.stream()
-//                .filter(u -> u.getId().equals(id))
-//                .findFirst();
-//
-//        return usuario.map(ResponseEntity::ok)
-//                .orElse(ResponseEntity.notFound().build());
-//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> buscarUsuario(@PathVariable Long id) {
+        Optional<Usuario> usuario = usuarioService.buscarPorId(id);
+
+        return usuarioService.buscarPorId(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     // Criar novo usuário
     @PostMapping

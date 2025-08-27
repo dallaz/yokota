@@ -1,8 +1,8 @@
-package service;
+package com.sistema.yokota.service;
 
 import com.sistema.yokota.model.Usuario;
 import org.springframework.stereotype.Service;
-import repository.UsuarioRepository;
+import com.sistema.yokota.repository.UsuarioRepository;
 
 import java.util.List;
 import java.util.Optional;
