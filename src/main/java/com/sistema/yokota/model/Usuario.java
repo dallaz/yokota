@@ -12,6 +12,7 @@ public class Usuario {
     private Long id;
     private String nome;
     private String email;
+    private String telefone;
 
     // Getters e Setters
     public Long getId() {
@@ -31,5 +32,11 @@ public class Usuario {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getTelefone() {
+        return telefone;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

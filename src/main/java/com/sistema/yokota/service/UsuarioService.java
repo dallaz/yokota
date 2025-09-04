@@ -31,6 +31,7 @@ public class UsuarioService {
         return repository.findById(id).map(u -> {
             u.setNome(usuarioAtualizado.getNome());
             u.setEmail(usuarioAtualizado.getEmail());
+            u.setTelefone(usuarioAtualizado.getTelefone());
             return repository.save(u);
         });
     }
